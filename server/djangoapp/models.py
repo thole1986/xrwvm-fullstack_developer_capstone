@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.timezone import now
 
 
 class CarMake(models.Model):
@@ -11,8 +10,8 @@ class CarMake(models.Model):
 
 
 class CarModel(models.Model):
-    make = models.ForeignKey(CarMake, null=True, on_delete = models.CASCADE)
-    name = models.CharField(max_length=255)
+    make = models.ForeignKey(CarMake, null = True, on_delete = models.CASCADE)
+    name = models.CharField(max_length = 255)
     dealer_id = models.IntegerField()
     SEDAN = "Sedan"
     SUV = "SUV"
@@ -22,7 +21,7 @@ class CarModel(models.Model):
         (SUV, "SUV"),
         (WAGON, "Wagon"),
     )
-    model_type  = models.CharField(max_length=10, choices=TYPE_CHOICES)
+    model_type = models.CharField(max_length=10, choices=TYPE_CHOICES)
     year = models.DateField()
 
     def __str__(self):
