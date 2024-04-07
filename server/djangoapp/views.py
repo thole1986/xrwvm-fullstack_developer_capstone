@@ -29,6 +29,7 @@ def get_cars(request):
     if(count == 0):
         initiate()
     car_models = CarModel.objects.select_related('make')
+    print("car_models", car_models)
     cars = []
     for car_model in car_models:
         cars.append({"CarModel": car_model.name, "CarMake": car_model.make.name})
